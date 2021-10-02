@@ -54,7 +54,7 @@ const Home = () => {
       </ul>
       <h2>Okruhy</h2>
       <ul>
-        {locations.map(({ title, link },index) => (
+        {locations.map(({ title, link }, index) => (
           <li key={index}>
             <Link to={`/test/${link}`}>{title}</Link>
           </li>

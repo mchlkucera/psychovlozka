@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Options from "../components/Options.jsx";
 import Popup from "../components/Popup.jsx";
 
-const Question = ({
+export const Question = ({
   data: {
     question: passedQuestion,
     showFeedback,
@@ -40,10 +40,10 @@ const Question = ({
     // if empty, throw notification
     if (input.length == 0)
       return showFeedback("wrong", "Co tak napsat nějakou odpověď?");
-    
+
     const answer = question.options.filter(x => x.correct)[0];
     const index = question.options.indexOf(answer);
-    
+
     // remove diacritics, put both to lowercase
     const processedAnswer = answer.text
       .toLowerCase()
@@ -55,7 +55,7 @@ const Question = ({
       .replace(/\p{Diacritic}/gu, "");
     question.options[index].correct;
 
-    
+
     // if correct, select the right answer as clicked
     const isCorrect = processedAnswer === processedInput;
     showFeedback(isCorrect?"correct":"wrong")
@@ -139,5 +139,3 @@ const Question = ({
       </div>
     );
 };
-
-export default Question;

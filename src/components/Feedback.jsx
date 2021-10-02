@@ -41,7 +41,7 @@ const Feedback = ({ feedbackList }) => {
           key={i}
           className={`feedback feedback-${type}`}
           style={{ zIndex: id, cursor: "pointer" }}
-          onClick={() => deleteAllFeedback(id)}
+          onClick={() => deleteAllFeedback()}
         >
           {// If there's customText, show customText
           // If not, show correct/wrong message

@@ -1,7 +1,5 @@
 import React from "react";
 
-const Template  = ()=>{
-  
-}
+export const Template  = ()=>{
 
-export default Template;
+}
