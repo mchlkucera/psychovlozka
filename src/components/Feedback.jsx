@@ -32,7 +32,7 @@ const Feedback = ({ feedbackList }) => {
     feedbackList.splice(feedbackList, 1);
     setList([...list]);
   };
-  const deleteAllFeedback = () => setList([])
+  const deleteAllFeedback = () => setList([]);
 
   return (
     <div className="feedback-container">
@@ -41,7 +41,7 @@ const Feedback = ({ feedbackList }) => {
           key={i}
           className={`feedback feedback-${type}`}
           style={{ zIndex: id, cursor: "pointer" }}
-          onClick={() => deleteAllFeedback()}
+          onClick={() => deleteAllFeedback(id)}
         >
           {// If there's customText, show customText
           // If not, show correct/wrong message
@@ -51,10 +51,19 @@ const Feedback = ({ feedbackList }) => {
             ? correctMsg[msgNum]
             : wrongMsg[msgNum]}
           <a href="#">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1 1.23145L17 17.2314M17 1.23145L1 17.2314" className="cross-stroke" strokeWidth="2"/>
-</svg>
-
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1.23145L17 17.2314M17 1.23145L1 17.2314"
+                className="cross-stroke"
+                strokeWidth="2"
+              />
+            </svg>
           </a>
         </div>
       ))}
