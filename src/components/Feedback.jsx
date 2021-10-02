@@ -5,6 +5,8 @@ const wrongMsg = texts.values.map(x => x[1]);
 
 const Feedback = ({ feedbackList }) => {
   const dismissTime = 2000;
+  
+  // hello comment
 
   const [list, setList] = useState(feedbackList);
 
