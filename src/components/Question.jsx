@@ -19,8 +19,9 @@ const Question = ({
 
    // handle abcd option click
    const handleOptionClick = (index) => {
+      if (!question.options[index].correct && !question.firstWrongAnswer)
+         question.firstWrongAnswer = index;
       showFeedback(question.options[index].correct ? "correct" : "wrong");
-      if (question.options[index].correct) console.log(question.id);
       // if there's an after-info, give a timeout
       if (question.options[index].correct && question.afterAnswering)
          setPopup({ content: question.afterAnswering, index });
@@ -79,14 +80,10 @@ const Question = ({
 
    // after closed Popup
    const closePopup = (acceptAnswer = false) => {
-      const {
-         index,
-         isAfterInputPopup,
-         inputData: { isCorrect },
-      } = popup;
+      const { index, isAfterInputPopup, inputData } = popup;
       if (isAfterInputPopup) {
          if (acceptAnswer) handleAnswer(true, true);
-         else handleAnswer(isCorrect, true);
+         else handleAnswer(inputData.isCorrect, true);
       } else nextQuestion(index);
       setPopup(false);
    };

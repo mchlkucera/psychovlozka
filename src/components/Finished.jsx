@@ -143,11 +143,15 @@ const Finished = ({ data: { data: defaultData, progress, testCategory } }) => {
                   ) : (
                      <>
                         <b>Tvoje odpověď:</b>
-                        <p>[]</p>
+                        <p>[{question.firstWrongAnswer}]</p>
                      </>
                   )}
                   <div className="container-two-btns">
-                     <a href="#" className="btn btn-secondary">
+                     <a
+                        href="#"
+                        onClick={() => alert("Toto ještě nefunguje")}
+                        className="btn btn-secondary is-disabled"
+                     >
                         Neumím
                      </a>
                      <a

@@ -1,7 +1,7 @@
 // const link = "http://localhost:3000";
-// const apiLink = "http://localhost:5000";
 const link = "https://psychovlozka.cz";
-const apiLink = "https://api.psychovlozka.cz";
+// const apiLink = "https://psychovlozka-api.vercel.app";
+const apiLink = "http://localhost:5000";
 
 const texts = {
    range: "Texts!A2:B1000",

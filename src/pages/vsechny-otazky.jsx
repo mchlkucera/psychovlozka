@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { apiLink as link } from "../data";
+import { apiLink } from "../data";
 
 const VsechnyOtazky = () => {
    const [data, setData] = useState(0);
    const [error, setError] = useState(0);
 
    const fetchData = () => {
-      fetch(`${link}/questions`)
+      fetch(`${apiLink}/questions`)
          .then((data) => data.json())
          .then((data) => setData(data))
          .catch((err) => {

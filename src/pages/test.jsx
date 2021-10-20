@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
-import { locations, textsLength } from "../data.js";
+import { locations, textsLength, apiLink } from "../data.js";
 
 // Import components
 import Question from "../components/Question.jsx";
@@ -48,84 +48,60 @@ const Test = () => {
       fetchData();
    }, []);
 
-   // Call API function
-   const url =
-      "https://sheets.googleapis.com/v4/spreadsheets/1Kzipb2bdwjtufDWkpvCo6_bPRVvi3pQ9tcljzeshDAo/values/Questions!A1:J?key=AIzaSyA8wbmMP0xUPYtnCHkYoY9kZyWE0HJ2dCA";
-   // const textsUrl =
-   //   "https://sheets.googleapis.com/v4/spreadsheets/1Kzipb2bdwjtufDWkpvCo6_bPRVvi3pQ9tcljzeshDAo/values/Texts!A2:B?key=AIzaSyA8wbmMP0xUPYtnCHkYoY9kZyWE0HJ2dCA";
-
-   const fetchData = async () => {
-      await axios
-         .get(url)
-         .then(({ data }) => handleData(data.values))
-         .catch((error) => {
-            setError(error), console.log(error);
-         });
-
-      // await axios
-      //   .get(textsUrl)
-      //   .then(({ data }) => {
-      //     console.log(data);
-      //   })
-      //   .catch(error => {
-      //     setError(error), console.log(error);
-      //   });
-   };
-
-   // Filter array
-   const filterArray = (array) => {
-      //return array.filter(x => (x[3] === "text" && x[8].length>0)); // only input with additional inf
-      if (testCategory == "Všechny okruhy") return array;
-      return array.filter((x) => x[2] == testCategory);
-   };
-
-   // Shuffle array
-   const shuffleArray = (array) =>
-      array
+   const generateOptions = (optionArr) =>
+      optionArr
+         .map((option, i) => ({
+            text: option,
+            correct: i === 0,
+            clicked: false,
+         }))
          .map((value) => ({ value, sort: Math.random() }))
          .sort((a, b) => a.sort - b.sort)
          .map(({ value }) => value);
 
-   // shuffle options, return it as an object
-   const formatOptions = (item) => {
-      const options = [item[4], item[5], item[6], item[7]];
-      //shuffling options
-      const shuffledOptions = shuffleArray(options);
-
-      //making an object
-      const objectOptions = shuffledOptions.map((option) => ({
-         text: option,
-         correct: option === item[4],
-         clicked: false,
-      }));
-      return objectOptions;
-   };
-
-   // Filter questions, shuffle questions, select 10 (or according to user settings)
-   const handleData = (data) => {
-      // filter the category
-      const filteredArray = filterArray(data);
-      // get the right amount
-      const getNRandom = shuffleArray(filteredArray).slice(
-         1,
-         questionCount + 1
-      );
-      // edit data format
-      const makeObject = getNRandom.map((item, index) => {
-         // shuffle options, make it an object
-         const options = formatOptions(item);
-         return {
-            id: item[0],
-            questionIndex: index,
-            question: item[1],
-            category: item[2],
-            questionType: item[3],
-            options,
-            additionalInstructions: item[8],
-            afterAnswering: item[9],
-         };
-      });
-      setData(makeObject);
+   const fetchData = async () => {
+      await axios
+         .get(`${apiLink}/questions/random/${questionCount}`)
+         .then(({ data }) =>
+            setData(
+               data.map(
+                  (
+                     {
+                        id,
+                        type,
+                        question,
+                        category,
+                        correctAnswer,
+                        otherAns1,
+                        otherAns2,
+                        otherAns3,
+                        additionalInstructions,
+                        afterAnswering,
+                     },
+                     i
+                  ) => ({
+                     questionIndex: i,
+                     id,
+                     question,
+                     options: generateOptions([
+                        correctAnswer,
+                        otherAns1,
+                        otherAns2,
+                        otherAns3,
+                     ]),
+                     category,
+                     questionType: type,
+                     additionalInstructions,
+                     afterAnswering,
+                     firstWrongAnswer: undefined,
+                  })
+               )
+            )
+         )
+         .catch((error) => {
+            setError(error);
+            console.log(error);
+         });
    };
 
    const getWidth = () => {
@@ -178,6 +154,7 @@ const Test = () => {
             </nav>
             <main id="main">
                <Progress data={{ progress, currentQuestion, testPhase }} />
+
                {testPhase == "finished" ? (
                   <Finished data={{ data, progress, testCategory }} />
                ) : (

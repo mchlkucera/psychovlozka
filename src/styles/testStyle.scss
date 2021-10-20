@@ -1,7 +1,7 @@
 $primary: #304fe8;
 $primary-hover: hsl(230, 80%, 35%);
 $bg-blue: rgba(128, 147, 241, 0.15);
-$bg-blue-hover: rgba(128, 147, 241, 0.08);
+$bg-blue-hover: rgba(128, 147, 241, 0.06);
 $white: #fff;
 $gray-dark: #707070;
 
@@ -415,10 +415,10 @@ $bg-green-hover: rgba(22, 163, 74, 0.04);
 }
 
 .btn-primary {
-   background: $primary !important;
-   color: $white !important;
+   background: $primary;
+   color: $white;
    &:hover {
-      background: $primary-hover !important;
+      background: $primary-hover;
    }
 }
 .btn-secondary {

@@ -27,10 +27,12 @@ const StudyBuddy = () => {
    };
 
    const removeBuddy = (id) => {
-      axios
-         .put(`${apiLink}/buddy/${id}`, { state: "removed" })
-         .then((response) => setData(data.filter((item) => item.id != id)))
-         .catch((err) => console.log(err));
+      if (confirm("Jsi si jist, že chceš inzerát odstranit?")) {
+         axios
+            .put(`${apiLink}/buddy/${id}`, { state: "removed" })
+            .then((response) => setData(data.filter((item) => item.id != id)))
+            .catch((err) => console.log(err));
+      } else return;
    };
 
    const editBuddy = ({ message, name, contact, id }) => {
@@ -76,8 +78,8 @@ const StudyBuddy = () => {
       };
 
       axios
-         .post(`${apiLink}/buddies`, { body: JSON.stringify(body) })
-         .then(() => {
+         .post(`${apiLink}/buddies`, { ...body })
+         .then((x) => {
             setLoading(false);
             alert("Úspěšně přidáno!");
             setData([...data, body]);
