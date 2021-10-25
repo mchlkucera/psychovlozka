@@ -17,7 +17,7 @@ const Registrace = ({ data: { handleRegistration } }) => {
       <div className="horizontal-center">
          <div className="section wf-section">
             <div className="container w-container">
-               <div className="w-form">
+               <div className="form-login w-form">
                   <form
                      id="wf-form-Login"
                      name="wf-form-Login"
@@ -31,7 +31,7 @@ const Registrace = ({ data: { handleRegistration } }) => {
                      })}
                      className="form"
                   >
-                     <h1>Registrace</h1>
+                     <h1 className="form-h1">Registrace</h1>
                      <div className="form__container">
                         <input
                            {...register("email", { required: true })}
@@ -104,7 +104,7 @@ const Login = ({ data: { handleLogin } }) => {
       <div className="horizontal-center">
          <div className="section wf-section">
             <div className="container w-container">
-               <div className="w-form">
+               <div className="form-login w-form">
                   <form
                      id="wf-form-Login"
                      name="wf-form-Login"

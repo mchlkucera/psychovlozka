@@ -20,7 +20,7 @@ const Question = ({
    // handle abcd option click
    const handleOptionClick = (index) => {
       if (!question.options[index].correct && !question.firstWrongAnswer)
-         question.firstWrongAnswer = index;
+         question.firstWrongAnswer = question.options[index];
       showFeedback(question.options[index].correct ? "correct" : "wrong");
       // if there's an after-info, give a timeout
       if (question.options[index].correct && question.afterAnswering)
@@ -55,10 +55,12 @@ const Question = ({
          .toLowerCase()
          .normalize("NFD")
          .replace(/\p{Diacritic}/gu, "");
+
       question.options[index].correct;
 
       // if correct, select the right answer as clicked
       const isCorrect = processedAnswer === processedInput;
+      if (!isCorrect) question.firstWrongAnswer = processedInput;
       showFeedback(isCorrect ? "correct" : "wrong");
 
       // show popup if answer is incorrect

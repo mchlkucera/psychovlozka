@@ -23,9 +23,9 @@ import Navod from "./pages/navod.jsx";
 import StudyBuddy from "./pages/study-buddy.jsx";
 import VsechnyOtazky from "./pages/vsechny-otazky.jsx";
 import Test from "./pages/test.jsx";
-import Page404 from "./pages/page404.jsx";
 import Feedback from "./components/Feedback";
 import { Registrace, Login } from "./pages/loginPages";
+import Blocked from "./pages/blocked";
 
 const App = () => {
    // const [validated, setValidated] = useState(0);
@@ -45,7 +45,12 @@ const App = () => {
 
    const setLogged = (user) => {
       if (user)
-         setToken({ token: user.token, userId: user.id, state: user.state });
+         setToken({
+            token: user.token,
+            userId: user.id,
+            state: user.state,
+            email: user.email,
+         });
       else {
          window.localStorage.clear();
          location.reload();
@@ -129,13 +134,12 @@ const App = () => {
    //    );
    // }
 
-   console.log(logged);
-
    // Routing for non-logged user
    if (!logged)
       return (
          <Router>
             <Switch>
+               <Route exact path="/blocked" component={Blocked} />
                <Route path="/registrace">
                   <Registrace data={{ handleRegistration }} />
                </Route>
@@ -153,9 +157,23 @@ const App = () => {
                      ].includes(pathname) ? (
                         <Redirect to="/registrace" />
                      ) : (
-                        <Page404 />
+                        <Route
+                           path="*"
+                           render={() => {
+                              window.location.href =
+                                 "https://psychovlozka.cz/404";
+                              return null;
+                           }}
+                        />
                      )
                   }
+               />
+               <Route
+                  path="*"
+                  render={() => {
+                     window.location.href = "https://psychovlozka.cz/404";
+                     return null;
+                  }}
                />
             </Switch>
             <Feedback feedbackList={feedbackList} mainpage={true} />
@@ -175,6 +193,7 @@ const App = () => {
             <Switch>
                <Route exact path="/" component={homeDemo} />
                <Route exact path="/navod" component={Navod} />
+               <Route exact path="/blocked" component={Blocked} />
 
                <Route path="/registrace">
                   <Redirect to="/" />
@@ -189,11 +208,26 @@ const App = () => {
                      ["/", "/study-buddy", "/vsechny-otazky", "/test"].includes(
                         pathname
                      ) ? (
-                        <Redirect to="/registrace" />
+                        <Redirect to="/blocked" />
                      ) : (
-                        <Page404 />
+                        <Route
+                           path="*"
+                           render={() => {
+                              window.location.href =
+                                 "https://psychovlozka.cz/404";
+                              return null;
+                           }}
+                        />
                      )
                   }
+               />
+
+               <Route
+                  path="*"
+                  render={() => {
+                     window.location.href = "https://psychovlozka.cz/404";
+                     return null;
+                  }}
                />
             </Switch>
             <Footer />
@@ -201,7 +235,7 @@ const App = () => {
          </Router>
       );
    // Logged user
-   else
+   else if (logged.state === "registered")
       return (
          <Router>
             <Route
@@ -226,11 +260,26 @@ const App = () => {
                <Route path="/login">
                   <Redirect to="/" />
                </Route>
-               <Route path="*" component={Page404} />
+               <Route
+                  path="*"
+                  render={() => {
+                     window.location.href = "https://psychovlozka.cz/404";
+                     return null;
+                  }}
+               />
             </Switch>
             <Footer />
             <Feedback feedbackList={feedbackList} mainpage={true} />
          </Router>
+      );
+   else
+      return (
+         <h1>
+            Někde se stala chyba. Prosíme,{" "}
+            <a href="https://psychovlozka.cz/index.html#footer">
+               kontaktuj nás
+            </a>
+         </h1>
       );
 };
 

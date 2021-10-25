@@ -127,23 +127,27 @@ const Finished = ({ data: { data: defaultData, progress, testCategory } }) => {
                   className={`recapitulation-question recapitulation-${question.state}`}
                   key={i}
                >
-                  {printInstructions(question)}
                   <p>{question.question}</p>
+                  <p className="diminished">{printInstructions(question)}</p>
 
                   {question.state === "correct" ? (
+                     <p>
+                        <b>Tvoje (správná) odpověď:</b>{" "}
+                        {question.options.find((x) => x.correct === true).text}
+                     </p>
+                  ) : (
                      <>
-                        <b>Tvoje (správná) odpověď:</b>,
                         <p>
+                           <b>Tvoje odpověď:</b>{" "}
+                           <i>{question.firstWrongAnswer.text}</i>
+                        </p>
+                        <p>
+                           <b>Správná odpověď:</b>{" "}
                            {
                               question.options.find((x) => x.correct === true)
                                  .text
                            }
                         </p>
-                     </>
-                  ) : (
-                     <>
-                        <b>Tvoje odpověď:</b>
-                        <p>[{question.firstWrongAnswer}]</p>
                      </>
                   )}
                   <div className="container-two-btns">

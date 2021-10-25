@@ -1,2 +1,4 @@
 build
 .vercel
+dist
+node_modules

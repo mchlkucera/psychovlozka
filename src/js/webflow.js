@@ -4,9 +4,7 @@
  * Inline scripts may access the api using an async handler:
  *   var Webflow = Webflow || [];
  *   Webflow.push(readyFunction);
- */
-
-!(function (t) {
+ */ !(function (t) {
    var e = {};
    function n(r) {
       if (e[r]) return e[r].exports;
@@ -10071,7 +10069,9 @@
                                           : "function" == typeof n && n();
                                  });
                               })(d, function () {
-                                 E(d, "add"), d.focus(), E(d, "remove");
+                                 E(d, "add"),
+                                    d.get(0).focus({ preventScroll: !0 }),
+                                    E(d, "remove");
                               });
                            },
                            e ? 0 : 300
@@ -10542,7 +10542,7 @@
                f = t(document),
                l = window.location,
                d = window.XDomainRequest && !window.atob,
-               p = ".w-form_",
+               p = ".w-frm",
                v = /e(-)?mail/i,
                h = /^\S+@\S+$/,
                E = window.alert,
@@ -11478,78 +11478,6 @@ Webflow.require("ix2").init({
             effectIn: null,
          },
          createdOn: 1555887741273,
-      },
-      "e-3": {
-         id: "e-3",
-         name: "",
-         animationType: "preset",
-         eventTypeId: "SCROLL_INTO_VIEW",
-         action: {
-            id: "",
-            actionTypeId: "SLIDE_EFFECT",
-            instant: false,
-            config: { actionListId: "slideInBottom", autoStopEventId: "e-4" },
-         },
-         mediaQueries: ["main", "medium", "small", "tiny"],
-         target: {
-            id: "6152c668a5195583854274c3|e81d2e5a-ed89-da0e-7af1-45b8c02e070c",
-            appliesTo: "ELEMENT",
-            styleBlockIds: [],
-         },
-         targets: [
-            {
-               id: "6152c668a5195583854274c3|e81d2e5a-ed89-da0e-7af1-45b8c02e070c",
-               appliesTo: "ELEMENT",
-               styleBlockIds: [],
-            },
-         ],
-         config: {
-            loop: false,
-            playInReverse: false,
-            scrollOffsetValue: 0,
-            scrollOffsetUnit: "%",
-            delay: 0,
-            direction: "BOTTOM",
-            effectIn: true,
-         },
-         createdOn: 1632822496758,
-      },
-      "e-5": {
-         id: "e-5",
-         name: "",
-         animationType: "preset",
-         eventTypeId: "SCROLL_INTO_VIEW",
-         action: {
-            id: "",
-            actionTypeId: "SLIDE_EFFECT",
-            instant: false,
-            config: { actionListId: "slideInBottom", autoStopEventId: "e-6" },
-         },
-         mediaQueries: ["main", "medium", "small", "tiny"],
-         target: {
-            selector: ".section.section-pink",
-            originalId:
-               "6152c668a5195583854274c3|3aa059b2-06e9-7d92-a935-97ceab9c6b79",
-            appliesTo: "CLASS",
-         },
-         targets: [
-            {
-               selector: ".section",
-               originalId:
-                  "6152c668a5195583854274c3|090d8cb1-a826-c76c-c1b0-f1f6a034d24f",
-               appliesTo: "CLASS",
-            },
-         ],
-         config: {
-            loop: false,
-            playInReverse: false,
-            scrollOffsetValue: 30,
-            scrollOffsetUnit: "%",
-            delay: 0,
-            direction: "BOTTOM",
-            effectIn: true,
-         },
-         createdOn: 1632823096425,
       },
       "e-7": {
          id: "e-7",
@@ -12514,6 +12442,285 @@ Webflow.require("ix2").init({
          },
          createdOn: 1633266912524,
       },
+      "e-37": {
+         id: "e-37",
+         name: "",
+         animationType: "preset",
+         eventTypeId: "SCROLL_INTO_VIEW",
+         action: {
+            id: "",
+            actionTypeId: "SLIDE_EFFECT",
+            instant: false,
+            config: { actionListId: "slideInBottom", autoStopEventId: "e-38" },
+         },
+         mediaQueries: ["main", "medium", "small", "tiny"],
+         target: {
+            id: "6152c668a5195583854274c3|e81d2e5a-ed89-da0e-7af1-45b8c02e070c",
+            appliesTo: "ELEMENT",
+            styleBlockIds: [],
+         },
+         targets: [
+            {
+               id: "6152c668a5195583854274c3|e81d2e5a-ed89-da0e-7af1-45b8c02e070c",
+               appliesTo: "ELEMENT",
+               styleBlockIds: [],
+            },
+         ],
+         config: {
+            loop: false,
+            playInReverse: false,
+            scrollOffsetValue: 0,
+            scrollOffsetUnit: "%",
+            delay: 0,
+            direction: "BOTTOM",
+            effectIn: true,
+         },
+         createdOn: 1633336606366,
+      },
+      "e-39": {
+         id: "e-39",
+         name: "",
+         animationType: "preset",
+         eventTypeId: "SCROLL_INTO_VIEW",
+         action: {
+            id: "",
+            actionTypeId: "SLIDE_EFFECT",
+            instant: false,
+            config: { actionListId: "slideInBottom", autoStopEventId: "e-40" },
+         },
+         mediaQueries: ["main", "medium", "small", "tiny"],
+         target: {
+            selector: ".all-questions__item.is-animated",
+            originalId:
+               "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+            appliesTo: "CLASS",
+         },
+         targets: [
+            {
+               selector: ".all-questions__item.is-animated",
+               originalId:
+                  "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+               appliesTo: "CLASS",
+            },
+         ],
+         config: {
+            loop: false,
+            playInReverse: false,
+            scrollOffsetValue: 21,
+            scrollOffsetUnit: "%",
+            delay: 0,
+            direction: "BOTTOM",
+            effectIn: true,
+         },
+         createdOn: 1634688409278,
+      },
+      "e-41": {
+         id: "e-41",
+         name: "",
+         animationType: "custom",
+         eventTypeId: "MOUSE_MOVE",
+         action: {
+            id: "",
+            actionTypeId: "GENERAL_CONTINUOUS_ACTION",
+            config: { actionListId: "a-11", affectedElements: {}, duration: 0 },
+         },
+         mediaQueries: ["main", "medium", "small", "tiny"],
+         target: {
+            selector: ".all-questions__item.is-animated",
+            originalId:
+               "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+            appliesTo: "CLASS",
+         },
+         targets: [
+            {
+               selector: ".all-questions__item.is-animated",
+               originalId:
+                  "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+               appliesTo: "CLASS",
+            },
+         ],
+         config: [
+            {
+               continuousParameterGroupId: "a-11-p",
+               selectedAxis: "X_AXIS",
+               basedOn: "ELEMENT",
+               reverse: false,
+               smoothing: 71,
+               restingState: 50,
+            },
+            {
+               continuousParameterGroupId: "a-11-p-2",
+               selectedAxis: "Y_AXIS",
+               basedOn: "ELEMENT",
+               reverse: false,
+               smoothing: 71,
+               restingState: 50,
+            },
+         ],
+         createdOn: 1634688486085,
+      },
+      "e-42": {
+         id: "e-42",
+         name: "",
+         animationType: "custom",
+         eventTypeId: "MOUSE_OVER",
+         action: {
+            id: "",
+            actionTypeId: "GENERAL_START_ACTION",
+            config: {
+               delay: 0,
+               easing: "",
+               duration: 0,
+               actionListId: "a-12",
+               affectedElements: {},
+               playInReverse: false,
+               autoStopEventId: "e-43",
+            },
+         },
+         mediaQueries: ["main", "medium", "small", "tiny"],
+         target: {
+            selector: ".all-questions__item.is-animated",
+            originalId:
+               "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+            appliesTo: "CLASS",
+         },
+         targets: [
+            {
+               selector: ".all-questions__item.is-animated",
+               originalId:
+                  "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+               appliesTo: "CLASS",
+            },
+         ],
+         config: {
+            loop: false,
+            playInReverse: false,
+            scrollOffsetValue: null,
+            scrollOffsetUnit: null,
+            delay: null,
+            direction: null,
+            effectIn: null,
+         },
+         createdOn: 1634689173332,
+      },
+      "e-43": {
+         id: "e-43",
+         name: "",
+         animationType: "custom",
+         eventTypeId: "MOUSE_OUT",
+         action: {
+            id: "",
+            actionTypeId: "GENERAL_START_ACTION",
+            config: {
+               delay: 0,
+               easing: "",
+               duration: 0,
+               actionListId: "a-13",
+               affectedElements: {},
+               playInReverse: false,
+               autoStopEventId: "e-42",
+            },
+         },
+         mediaQueries: ["main", "medium", "small", "tiny"],
+         target: {
+            selector: ".all-questions__item.is-animated",
+            originalId:
+               "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+            appliesTo: "CLASS",
+         },
+         targets: [
+            {
+               selector: ".all-questions__item.is-animated",
+               originalId:
+                  "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+               appliesTo: "CLASS",
+            },
+         ],
+         config: {
+            loop: false,
+            playInReverse: false,
+            scrollOffsetValue: null,
+            scrollOffsetUnit: null,
+            delay: null,
+            direction: null,
+            effectIn: null,
+         },
+         createdOn: 1634689173335,
+      },
+      "e-44": {
+         id: "e-44",
+         name: "",
+         animationType: "custom",
+         eventTypeId: "MOUSE_MOVE",
+         action: {
+            id: "",
+            actionTypeId: "GENERAL_CONTINUOUS_ACTION",
+            config: { actionListId: "a-14", affectedElements: {}, duration: 0 },
+         },
+         mediaQueries: ["main", "medium", "small", "tiny"],
+         target: {
+            appliesTo: "PAGE",
+            styleBlockIds: [],
+            id: "615ad19ad33a742d9070a9fa",
+         },
+         targets: [],
+         config: [
+            {
+               continuousParameterGroupId: "a-14-p",
+               selectedAxis: "X_AXIS",
+               basedOn: "VIEWPORT",
+               reverse: false,
+               smoothing: 50,
+               restingState: 50,
+            },
+            {
+               continuousParameterGroupId: "a-14-p-2",
+               selectedAxis: "Y_AXIS",
+               basedOn: "VIEWPORT",
+               reverse: false,
+               smoothing: 50,
+               restingState: 50,
+            },
+         ],
+         createdOn: 1635025056899,
+      },
+      "e-45": {
+         id: "e-45",
+         name: "",
+         animationType: "custom",
+         eventTypeId: "MOUSE_MOVE",
+         action: {
+            id: "",
+            actionTypeId: "GENERAL_CONTINUOUS_ACTION",
+            config: { actionListId: "a-15", affectedElements: {}, duration: 0 },
+         },
+         mediaQueries: ["main", "medium", "small", "tiny"],
+         target: {
+            appliesTo: "PAGE",
+            styleBlockIds: [],
+            id: "615ad19ad33a742d9070a9fa",
+         },
+         targets: [],
+         config: [
+            {
+               continuousParameterGroupId: "a-15-p",
+               selectedAxis: "X_AXIS",
+               basedOn: "VIEWPORT",
+               reverse: false,
+               smoothing: 50,
+               restingState: 50,
+            },
+            {
+               continuousParameterGroupId: "a-15-p-2",
+               selectedAxis: "Y_AXIS",
+               basedOn: "VIEWPORT",
+               reverse: false,
+               smoothing: 50,
+               restingState: 50,
+            },
+         ],
+         createdOn: 1635025175108,
+      },
    },
    actionLists: {
       a: {
@@ -12982,85 +13189,385 @@ Webflow.require("ix2").init({
          useFirstGroupAsInitialState: false,
          createdOn: 1633183713908,
       },
-      slideInBottom: {
-         id: "slideInBottom",
-         useFirstGroupAsInitialState: true,
+      "a-11": {
+         id: "a-11",
+         title: "move inzerat",
+         continuousParameterGroups: [
+            {
+               id: "a-11-p",
+               type: "MOUSE_X",
+               parameterLabel: "Mouse X",
+               continuousActionGroups: [
+                  {
+                     keyframe: 0,
+                     actionItems: [
+                        {
+                           id: "a-11-n",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 useEventTarget: true,
+                                 id: "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+                              },
+                              yValue: -9,
+                              xUnit: "DEG",
+                              yUnit: "deg",
+                              zUnit: "DEG",
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     keyframe: 100,
+                     actionItems: [
+                        {
+                           id: "a-11-n-2",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 useEventTarget: true,
+                                 id: "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+                              },
+                              xValue: null,
+                              yValue: 9,
+                              xUnit: "deg",
+                              yUnit: "deg",
+                              zUnit: "DEG",
+                           },
+                        },
+                     ],
+                  },
+               ],
+            },
+            {
+               id: "a-11-p-2",
+               type: "MOUSE_Y",
+               parameterLabel: "Mouse Y",
+               continuousActionGroups: [
+                  {
+                     keyframe: 0,
+                     actionItems: [
+                        {
+                           id: "a-11-n-3",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 useEventTarget: true,
+                                 id: "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+                              },
+                              xValue: 9,
+                              zValue: null,
+                              xUnit: "deg",
+                              yUnit: "DEG",
+                              zUnit: "deg",
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     keyframe: 100,
+                     actionItems: [
+                        {
+                           id: "a-11-n-4",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 useEventTarget: true,
+                                 id: "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+                              },
+                              xValue: -9,
+                              yValue: null,
+                              zValue: null,
+                              xUnit: "deg",
+                              yUnit: "deg",
+                              zUnit: "deg",
+                           },
+                        },
+                     ],
+                  },
+               ],
+            },
+         ],
+         createdOn: 1634688496036,
+      },
+      "a-12": {
+         id: "a-12",
+         title: "zoom in inzerat",
          actionItemGroups: [
             {
                actionItems: [
                   {
-                     actionTypeId: "STYLE_OPACITY",
+                     id: "a-12-n",
+                     actionTypeId: "TRANSFORM_SCALE",
                      config: {
                         delay: 0,
-                        duration: 0,
+                        easing: "outExpo",
+                        duration: 500,
                         target: {
-                           id: "N/A",
-                           appliesTo: "TRIGGER_ELEMENT",
                            useEventTarget: true,
+                           id: "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
                         },
-                        value: 0,
-                     },
-                  },
-               ],
-            },
-            {
-               actionItems: [
-                  {
-                     actionTypeId: "TRANSFORM_MOVE",
-                     config: {
-                        delay: 0,
-                        duration: 0,
-                        target: {
-                           id: "N/A",
-                           appliesTo: "TRIGGER_ELEMENT",
-                           useEventTarget: true,
-                        },
-                        xValue: 0,
-                        yValue: 100,
-                        xUnit: "PX",
-                        yUnit: "PX",
-                        zUnit: "PX",
-                     },
-                  },
-               ],
-            },
-            {
-               actionItems: [
-                  {
-                     actionTypeId: "TRANSFORM_MOVE",
-                     config: {
-                        delay: 0,
-                        easing: "outQuart",
-                        duration: 1000,
-                        target: {
-                           id: "N/A",
-                           appliesTo: "TRIGGER_ELEMENT",
-                           useEventTarget: true,
-                        },
-                        xValue: 0,
-                        yValue: 0,
-                        xUnit: "PX",
-                        yUnit: "PX",
-                        zUnit: "PX",
-                     },
-                  },
-                  {
-                     actionTypeId: "STYLE_OPACITY",
-                     config: {
-                        delay: 0,
-                        easing: "outQuart",
-                        duration: 1000,
-                        target: {
-                           id: "N/A",
-                           appliesTo: "TRIGGER_ELEMENT",
-                           useEventTarget: true,
-                        },
-                        value: 1,
+                        xValue: 1.035,
+                        yValue: 1.035,
+                        locked: true,
                      },
                   },
                ],
             },
          ],
+         useFirstGroupAsInitialState: false,
+         createdOn: 1634689192264,
+      },
+      "a-13": {
+         id: "a-13",
+         title: "zoom out inzerat",
+         actionItemGroups: [
+            {
+               actionItems: [
+                  {
+                     id: "a-13-n",
+                     actionTypeId: "TRANSFORM_SCALE",
+                     config: {
+                        delay: 0,
+                        easing: "outExpo",
+                        duration: 500,
+                        target: {
+                           useEventTarget: true,
+                           id: "6152c668a5195583854274c3|7b865144-5a61-a9f1-9dc2-fed8b20b9b45",
+                        },
+                        xValue: 1,
+                        yValue: 1,
+                        locked: true,
+                     },
+                  },
+               ],
+            },
+         ],
+         useFirstGroupAsInitialState: false,
+         createdOn: 1634689257296,
+      },
+      "a-14": {
+         id: "a-14",
+         title: "moving jozo",
+         continuousParameterGroups: [
+            {
+               id: "a-14-p",
+               type: "MOUSE_X",
+               parameterLabel: "Mouse X",
+               continuousActionGroups: [
+                  {
+                     keyframe: 0,
+                     actionItems: [
+                        {
+                           id: "a-14-n",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2cda065b-db6c-d385-9f8d-25880be5e9f0",
+                              },
+                              xValue: null,
+                              yValue: -15,
+                              xUnit: "deg",
+                              yUnit: "deg",
+                              zUnit: "DEG",
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     keyframe: 100,
+                     actionItems: [
+                        {
+                           id: "a-14-n-2",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2cda065b-db6c-d385-9f8d-25880be5e9f0",
+                              },
+                              yValue: 20,
+                              xUnit: "DEG",
+                              yUnit: "deg",
+                              zUnit: "DEG",
+                           },
+                        },
+                     ],
+                  },
+               ],
+            },
+            {
+               id: "a-14-p-2",
+               type: "MOUSE_Y",
+               parameterLabel: "Mouse Y",
+               continuousActionGroups: [
+                  {
+                     keyframe: 0,
+                     actionItems: [
+                        {
+                           id: "a-14-n-3",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2cda065b-db6c-d385-9f8d-25880be5e9f0",
+                              },
+                              xValue: 17,
+                              xUnit: "deg",
+                              yUnit: "DEG",
+                              zUnit: "DEG",
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     keyframe: 100,
+                     actionItems: [
+                        {
+                           id: "a-14-n-4",
+                           actionTypeId: "TRANSFORM_ROTATE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2cda065b-db6c-d385-9f8d-25880be5e9f0",
+                              },
+                              xValue: -17,
+                              xUnit: "deg",
+                              yUnit: "DEG",
+                              zUnit: "DEG",
+                           },
+                        },
+                     ],
+                  },
+               ],
+            },
+         ],
+         createdOn: 1635025060108,
+      },
+      "a-15": {
+         id: "a-15",
+         title: "moving ocicka",
+         continuousParameterGroups: [
+            {
+               id: "a-15-p",
+               type: "MOUSE_X",
+               parameterLabel: "Mouse X",
+               continuousActionGroups: [
+                  {
+                     keyframe: 0,
+                     actionItems: [
+                        {
+                           id: "a-15-n",
+                           actionTypeId: "TRANSFORM_MOVE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2645e803-dff5-0bbc-9509-4c772f87ef49",
+                              },
+                              xValue: -3,
+                              xUnit: "px",
+                              yUnit: "PX",
+                              zUnit: "PX",
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     keyframe: 100,
+                     actionItems: [
+                        {
+                           id: "a-15-n-2",
+                           actionTypeId: "TRANSFORM_MOVE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2645e803-dff5-0bbc-9509-4c772f87ef49",
+                              },
+                              xValue: 6,
+                              xUnit: "px",
+                              yUnit: "PX",
+                              zUnit: "PX",
+                           },
+                        },
+                     ],
+                  },
+               ],
+            },
+            {
+               id: "a-15-p-2",
+               type: "MOUSE_Y",
+               parameterLabel: "Mouse Y",
+               continuousActionGroups: [
+                  {
+                     keyframe: 0,
+                     actionItems: [
+                        {
+                           id: "a-15-n-3",
+                           actionTypeId: "TRANSFORM_MOVE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2645e803-dff5-0bbc-9509-4c772f87ef49",
+                              },
+                              yValue: -5,
+                              xUnit: "PX",
+                              yUnit: "px",
+                              zUnit: "PX",
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     keyframe: 100,
+                     actionItems: [
+                        {
+                           id: "a-15-n-4",
+                           actionTypeId: "TRANSFORM_MOVE",
+                           config: {
+                              delay: 0,
+                              easing: "",
+                              duration: 500,
+                              target: {
+                                 id: "615ad19ad33a742d9070a9fa|2645e803-dff5-0bbc-9509-4c772f87ef49",
+                              },
+                              yValue: 5,
+                              xUnit: "PX",
+                              yUnit: "px",
+                              zUnit: "PX",
+                           },
+                        },
+                     ],
+                  },
+               ],
+            },
+         ],
+         createdOn: 1635025178631,
       },
       flyInLeft: {
          id: "flyInLeft",
@@ -13150,6 +13657,86 @@ Webflow.require("ix2").init({
                         },
                         xValue: 1,
                         yValue: 1,
+                     },
+                  },
+                  {
+                     actionTypeId: "STYLE_OPACITY",
+                     config: {
+                        delay: 0,
+                        easing: "outQuart",
+                        duration: 1000,
+                        target: {
+                           id: "N/A",
+                           appliesTo: "TRIGGER_ELEMENT",
+                           useEventTarget: true,
+                        },
+                        value: 1,
+                     },
+                  },
+               ],
+            },
+         ],
+      },
+      slideInBottom: {
+         id: "slideInBottom",
+         useFirstGroupAsInitialState: true,
+         actionItemGroups: [
+            {
+               actionItems: [
+                  {
+                     actionTypeId: "STYLE_OPACITY",
+                     config: {
+                        delay: 0,
+                        duration: 0,
+                        target: {
+                           id: "N/A",
+                           appliesTo: "TRIGGER_ELEMENT",
+                           useEventTarget: true,
+                        },
+                        value: 0,
+                     },
+                  },
+               ],
+            },
+            {
+               actionItems: [
+                  {
+                     actionTypeId: "TRANSFORM_MOVE",
+                     config: {
+                        delay: 0,
+                        duration: 0,
+                        target: {
+                           id: "N/A",
+                           appliesTo: "TRIGGER_ELEMENT",
+                           useEventTarget: true,
+                        },
+                        xValue: 0,
+                        yValue: 100,
+                        xUnit: "PX",
+                        yUnit: "PX",
+                        zUnit: "PX",
+                     },
+                  },
+               ],
+            },
+            {
+               actionItems: [
+                  {
+                     actionTypeId: "TRANSFORM_MOVE",
+                     config: {
+                        delay: 0,
+                        easing: "outQuart",
+                        duration: 1000,
+                        target: {
+                           id: "N/A",
+                           appliesTo: "TRIGGER_ELEMENT",
+                           useEventTarget: true,
+                        },
+                        xValue: 0,
+                        yValue: 0,
+                        xUnit: "PX",
+                        yUnit: "PX",
+                        zUnit: "PX",
                      },
                   },
                   {

@@ -401,6 +401,10 @@ $bg-green-hover: rgba(22, 163, 74, 0.04);
    &::before {
       content: "aa";
    }
+   &:hover {
+      color: #555 !important;
+      background-color: #eee !important;
+   }
 }
 .error-msg {
    color: #d11010;

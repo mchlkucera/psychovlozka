@@ -4,7 +4,7 @@ import useToken from "../components/useToken";
 import axios from "axios";
 
 const StudyBuddy = () => {
-   const [loading, setLoading] = useState(1);
+   const [loading, setLoading] = useState(true);
    const [data, setData] = useState(0);
    const [error, setError] = useState(0);
    const userId = useToken().getUserId();
@@ -13,8 +13,8 @@ const StudyBuddy = () => {
       fetch(`${apiLink}/buddies`)
          .then((data) => data.json())
          .then((data) => {
-            setLoading(0), setData(data);
-            console.log(data);
+            setLoading(false);
+            setData(data);
          })
          .catch((err) => {
             console.log(err);
@@ -80,7 +80,6 @@ const StudyBuddy = () => {
       axios
          .post(`${apiLink}/buddies`, { ...body })
          .then((x) => {
-            setLoading(false);
             alert("Úspěšně přidáno!");
             setData([...data, body]);
             window.scrollTo(0, document.body.scrollHeight);
@@ -170,6 +169,14 @@ const StudyBuddy = () => {
                      </div>
                   ) : error || !data ? (
                      <h1>Nepodařilo se načíst data</h1>
+                  ) : data.length == 0 ? (
+                     <div className="text-center">
+                        <h2>Zatím tu žádný inzerátek není</h2>
+                        <p>
+                           Můžeš být úplně úplně úplně první kdo inzerát přidá
+                           🥵
+                        </p>
+                     </div>
                   ) : (
                      <>
                         <div className="w-col w-col-6">

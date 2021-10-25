@@ -2,6 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app.tsx";
 
+import "./css/normalize.css";
+import "./css/webflow.css";
+import "./css/psychovlozka.webflow.css";
+
+import "./js/webflow";
+
 ReactDOM.render(
    <React.StrictMode>
       <App />
